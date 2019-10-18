@@ -1,0 +1,1998 @@
+Groovy 
+http://docs.groovy-lang.org/next/html/documentation/
+
+It is a langueage assigned by java python..
+I can compile my java code with grovvy comnpiler.
+Apache groovy. Apache supports groovy langueage.
+
+All course code are in the https://github.com/danvega/apache-groovy-course.
+
+Groovy language main site: https://groovy-lang.org/
+
+Groovy language source codes: https://github.com/apache/groovy i can find it via https://groovy-lang.org socialize part.
+Groovy website code: https://github.com/groovy/groovy-website
+Grrovy documentation: https://groovy-lang.org/documentation.html
+
+
+Groovy api: http://groovy-lang.org/api.html
+Groovy JDK api: http://groovy-lang.org/gdk.html - Document describes the methods added to the JDK to make it more groovy.
+
+Groovy learn: https://groovy-lang.org/learn.html
+
+
+SDKMAN: The software Development Kit Manager - https://sdkman.io/
+SD came in as a tool for managing parallel versions of multiple software development kits on most unix based systems.
+It provides a convenient command line interface and API for installing switching removing and listing different candidates.
+Formerly knows as GBM.
+Usage: https://sdkman.io/usage
+
+
+groovysh - the Groovy repl-like shell:
+https://groovy-lang.org/groovysh.html
+The Groovy Shell, aka. groovysh is a command-line application which allows easy access to evaluate Groovy expressions, define classes and run simple experiments.
+
+
+C:\Users\keskinegea>groovysh -help
+C:\Users\keskinegea>groovysh -version
+C:\Users\keskinegea>groovysh --> going to shell 
+groovy:000> :h
+	000> def hi(name){
+	001> println "hi, $name"
+	002> }
+	===> true
+	groovy:000> hi ("aa")
+	 000> hi ("aa")
+	hi, aa
+	===> null
+	
+	groovy:000> class Person {
+	groovy:001> def sayHello(){ println "hello"}
+	groovy:002> }
+	 000> class Person {
+	 001> def sayHello(){ println "hello"}
+	 002> }
+	===> true
+	groovy:000> person = new Person()
+	 000> person = new Person()
+	===> Person@1fcb4808
+	groovy:000> person.sayHello()
+	 000> person.sayHello()
+	hello
+	===> null
+groovy:000>
+groovy:000> :show variables
+Variables:
+  _ = null
+  person = Person@1fcb4808
+  hello = method hello()
+  hi = method hi()
+===> [_:null, person:Person@1fcb4808, hello:org.codehaus.groovy.runtime.MethodClosure@1080b026, hi:org.codehaus.groovy.runtime.MethodClosure@58ebfd03]
+groovy:000>
+groovy:000> :show classes
+Classes:
+  class Person
+===> [class Person]
+groovy:000>
+groovy:000> :clear --> now we clear the buffer and lost hi method
+Buffer cleared
+
+
+
+groovyc - the Groovy compiler:
+groovyc is the Groovy compiler command line tool. It allows you to compile Groovy sources into bytecode. 
+It plays the same role as javac in the Java world. 
+It compiles to java byte code.
+
+The easiest way to compile a Groovy script or class is to run the following command:
+	groovyc MyClass.groovy
+https://groovy-lang.org/groovyc.html
+
+I created a Person.groovy file in Groovy-Udemy folder. Since I want to use 'less Person.groovy' i switched from cmd to gitBash.
+Since gitbash is like a terminal.
+	keskinegea@ELSLOWL-100085 MINGW64 ~/Desktop/Groovy-Udemy
+	$ less Person.groovy
+
+	keskinegea@ELSLOWL-100085 MINGW64 ~/Desktop/Groovy-Udemy
+	$ groovy -v
+	Groovy Version: 2.5.8 JVM: 1.8.0_212 Vendor: Oracle Corporation OS: Windows 10
+
+	keskinegea@ELSLOWL-100085 MINGW64 ~/Desktop/Groovy-Udemy
+	$ groovysh
+	Groovy Shell (2.5.8, JVM: 1.8.0_212)
+	Type ':help' or ':h' for help.
+	-------------------------------------------------------------------------------
+	groovy:000> def sayHi() {
+	def sayHi() {
+	groovy:001> println "Hi"
+	println "Hi"
+	groovy:002> }
+	}
+	===> true
+	groovy:000> sayHi()
+	sayHi()
+	Hi
+	===> null
+	groovy:000>
+	
+	
+	keskinegea@ELSLOWL-100085 MINGW64 ~/Desktop/Groovy-Udemy
+	$ groovyc Person.groovy
+
+	keskinegea@ELSLOWL-100085 MINGW64 ~/Desktop/Groovy-Udemy
+	$ ls -a
+	./  ../  GroovyUdemy.txt  Person.class  Person.groovy
+
+	keskinegea@ELSLOWL-100085 MINGW64 ~/Desktop/Groovy-Udemy
+	$
+
+Delete all .class files:
+	keskinegea@ELSLOWL-100085 MINGW64 ~/Desktop/Groovy-Udemy
+	$ rm *.class
+
+Compile all classes:
+	keskinegea@ELSLOWL-100085 MINGW64 ~/Desktop/Groovy-Udemy/Classes
+	$ groovyc *.groovy
+
+Run a class wih groovy command:
+	Let's run Application class:
+	groovy Application or groovy Application.groovy
+	
+	keskinegea@ELSLOWL-100085 MINGW64 ~/Desktop/Groovy-Udemy/Classes
+		$ groovy Application
+		Person: ayce keskinege
+
+	keskinegea@ELSLOWL-100085 MINGW64 ~/Desktop/Groovy-Udemy/Classes
+		$ groovy Application.groovy
+		Person: ayce keskinege
+
+Since groovyc compiles to java byte code we can with java command too just need to add grails classpath to java command
+like java -cp ....
+
+
+
+groovyConsole - the Groovy Swing console:
+The Groovy Swing Console allows a user to enter and run Groovy scripts.
+Groovy Console is launched via groovyConsole or groovyConsole.bat, both located in $GROOVY_HOME/bin
+http://groovy-lang.org/groovyconsole.html
+
+For open the groovy console: type groovyConsole
+	keskinegea@ELSLOWL-100085 MINGW64 ~/Desktop/Groovy-Udemy/Classes
+	$ groovyConsole
+
+
+I write below lines to GroovyConsole:
+	class Person{
+		String first
+		String last
+		
+		public Person(String first, String last){
+			this.first = first
+			this.last = last
+		}
+		
+		public String toString(){
+			"Person: $first $last"
+		}
+	}
+
+	Person p = new Person("ayce", "keskinege")
+	println p
+
+Then run:
+Person: ayce keskinege
+
+To see the bytecode: 
+	select script --> Inspect Ast 
+	It opens a pop up and we can see the byte code.
+
+
+Create groovy project on eclipse:
+Make sure you choose groovy project and configure groovy path.
+
+
+
+From Java to Groovy:
+Groovy is just made on Java not replacing Java.
+
+No need to import. 
+	By default Groovy import regular classes.
+
+All classes, constructors and methods in Groovy is public.
+	No need public class and public getters/setters 
+
+Return statemnts:
+	Groovy always treat the last statement as return statement. 
+	So we can delete all retrun statements.
+
+Semicolons are always optional.
+	We can delete all semicolons But if we have 2 staments in the same line we need semicolon to seperate these stataments.
+
+Properties are private by default. 
+	So we can delete all private keywords before our variables.
+	private String name --> String name
+
+Getters/Setters:
+	Groovy already generates getters and setters so we can delete all getters and seters.
+
+Constructors:
+	We can actually initialize our groovy beans using named parameters. 
+	Like: User u = new User(first:"Ayce", last:"Keskinege") or User u = new User(first:"Ayce") or User u = new User()
+	So there is no need for all these different constructors here.
+	We can delete constructors.
+	
+System.out.println --> println
+	And paranthesis are optional.
+	Instead of concating with + we use $ sign to get the value of the variable.
+
+toString methods:
+	We use AST Transformations. --> @groovy.transform.ToString()
+
+Run two files with Groovy Console:
+groovyConsole start.groovy
+groovyConsole finish.groovy
+	keskinegea@ELSLOWL-100085 MINGW64 ~/Desktop/Groovy-Udemy/JavaToGroovy
+	$ groovyConsole finish.groovy
+	
+And add below lines to run in groovyConsole:
+	def u = new User(first:"Ayce", last:"Keskinege")
+	println u
+
+
+Quiz:
+You need to install Java to run compiled Groovy code.
+Groovy imports a bunch of packages for us by default.
+By default methods and classes have an access modifier of public.
+
+
+Groovy Basics:
+https://groovy-lang.org/structure.html
+
+1-Imports:
+https://groovy-lang.org/structure.html#_imports
+In order to refer to any class you need a qualified reference to its package. Groovy follows Java’s notion of allowing import statement to resolve class references.
+
+The below imports are added by groovy for you:
+import java.lang.*
+import java.util.*
+import java.io.*
+import java.net.*
+import groovy.lang.*
+import groovy.util.*
+import java.math.BigInteger
+import java.math.BigDecimal
+
+I typed grrovyConsole below line;
+	def xml = new MarkupBuilder()
+	
+	and get 1 compilation error: unable to resolve class MarkupBuilder. Cause I did not import it.
+	It is not in the default imports.
+	
+	Adding imports:
+	import groovy.xml.MarkupBuilder
+	import groovy.xml.*
+	
+	
+2-Keywords:
+Java keywords:
+https://docs.oracle.com/javase/tutorial/java/nutsandbolts/_keywords.html
+Groovy keywords:
+http://groovy-lang.org/syntax.html#_keywords
+
+
+3-Comments:
+Groovy Commands:
+http://groovy-lang.org/syntax.html#_single_line_comment
+
+:): https://medium.com/@webseanhickey/the-evolution-of-a-software-engineer-db854689243#.5zm1hn71e
+
+Single line //
+Multiline /* */
+GroovyDoc  /*
+			*
+			*
+			*/
+Shebang line:
+The shebang line understood by UNIX systems which allows scripts to be run directly from the command-line, provided you have installed the Groovy distribution and the groovy command is available on the PATH
+	#!/usr/bin/env groovy
+	println "Hello from the shebang line"
+
+
+
+4-Assertions:
+http://groovy-lang.org/semantics.html#_power_assertion
+
+Assertions by the way of the assert key word were added in Java one that for an assertion is basically.
+A statement in the Java programming language that enables you to test your assumptions about your program.
+Now the one thing to note that in Java by default they're not even enabled.
+You have to turn them with -ea flag.
+
+Unlike Java with which Groovy shares the assert keyword, the latter in Groovy behaves very differently.
+First of all, an assertion in Groovy is always executed, independently of the -ea flag of the JVM.
+It makes this a first class choice for unit tests.
+The notion of "power asserts" is directly related to how the Groovy assert behaves.
+
+A power assertion is decomposed into 3 parts:
+assert [left expression] == [right expression] : (optional message)
+The result of the assertion is very different from what you would get in Java.
+If the assertion is true, then nothing happens.
+If the assertion is false, then it provides a visual representation of the value of each sub-expressions of the expression being asserted. For example:
+assert 1+1 == 3
+Caught: Assertion failed:
+assert 1+1 == 3
+        |  |
+        2  false
+
+
+def x = 2
+def y = 7
+def z = 5
+def calc = { a,b -> a*b+1 }
+assert calc(x,y) == [x,z].sum()
+
+assert calc(x,y) == [x,z].sum()
+       |    | |  |   | |  |
+       15   2 7  |   2 5  7
+                 false
+	
+	
+5-Scripts:
+A script is always compiled into a class.
+The Groovy compiler will compile the class for you, with the body of the script copied into a run method.
+http://groovy-lang.org/structure.html#_script_class
+
+Our groovy can sometimes be referred to as a scripting language because of its capabilities.
+But I think to limit it to just that would be wrong.
+Scripts are like any other groovy file that have an extension of that groovy and they can be executed from a command line.
+
+Script is a groovy file that contains groovy code outside of class declaration.
+What you might not expect is the script actually is compiled into a class.
+The groovy compiler will compile the class for you with the body of the script copied into a run method.
+
+Type groovyConsole to println "Hello" and then go to Script --> Inspect Ast
+public class script1569251794064 extends groovy.lang.Script { 
+
+    public script1569251794064() {
+    }
+
+    public script1569251794064(groovy.lang.Binding context) {
+        super(context)
+    }
+
+    public static void main(java.lang.String[] args) {
+        org.codehaus.groovy.runtime.InvokerHelper.runScript(script1569251794064, args)
+    }
+
+    public java.lang.Object run() {
+        this.println('Hello')
+    }
+
+}
+
+
+6-Classes:
+http://groovy-lang.org/objectorientation.html#_class
+Groovy classes are very similar to Java classes, and are compatible with Java ones at JVM level.
+They may have methods, fields and properties (think JavaBean properties but with less boilerplate).
+Classes and class members can have the same modifiers (public, protected, private, static, etc) as in Java with some minor differences at the source level.
+
+Key Differences between Groovy classes and their Java counterparts are:
+- Classes or methods with no visibility modifier are automatically public.
+- All fileds are private in default.
+- Fields with no visibility modifier are turned into properties automatically - getter and setter methods aren’t needed
+- Classes do not need to have the same base name as their source file definitions but it is highly recommended in most scenarios.
+- One source file may contain one or more classes (but if a file contains any code not in a class, it is considered a script).
+- Scripts are just classes with some special conventions and will have the same name as their source file (so don’t include a class definition within a script having the same name as the script source file).
+- def keyword. 
+
+
+Developer d = new Developer()
+d.first = "Ayce" --> Actually this calls setFirst method which groovy is created for us.
+d.setLast("Keskinege")
+d.languages.getClass().getName() --> java.util.ArrayList
+d.languages.class --> java.util.ArrayList
+Adding items to ArrayList:
+d.languages << "Groovy"  --> we use left shift operator to add items to ArrayList.
+d.languages << "Java"
+d --> the last line is returned so d is return and toString method on the Developer class is called.
+
+d.work() --> calling method.
+
+
+7- Numbers
+In Java we have primitive data types and their wrapper classes.
+In groovy it is kinda automatically wrapped to instance classes of promitive types like Integer, Long not int long ...
+
+1.getClass().getName() --> Returns class java.lang.Integer
+
+int x =1
+x.class --> Returns class java.lang.Integer
+Even thought we want to create a primitive class Groovy wants to deal with Wrapper classes. So it becomes a instance of Integer.
+
+def y =2
+y.class --> Returns class java.lang.Integer
+
+5.5.class --> Returns class java.math.BigDecimal
+
+def y =5.5d
+y.class --> Returns class java.math.BigDecimal
+
+***By default In groovy we get BigDecimal type not Double.
+	float f = 1.25 
+	f.class -->  class java.lang.Float
+
+	def ff = 1.25 
+	ff.class --> class java.math.BigDecimal
+
+
+
+
+8- Groovy Control Structure - if else switch :)
+http://groovy-lang.org/semantics.html#_control_structures
+
+***We do not have to check for null in groovy.
+String name = null
+if(name){
+	println "Name is $name"
+}
+
+***What about empty Strings? Just like null, empty strings are threaded as false
+String last = ""
+if(last){
+	println "Last is $last"
+}
+
+// for in the list
+def list = [1,2,3,4]
+for(num in list){
+	println num
+}
+
+//closure
+def list2 = [1,2,3,4]
+list2.each { println it} --> *it is a special key
+
+
+
+9-Annotations & AST Transformations
+http://groovy-lang.org/objectorientation.html#_annotation
+http://docs.groovy-lang.org/next/html/gapi/groovy/transform/package-summary.html
+
+Unlike the Java language in groovey and annotation can be used to alter the semantics of a language. This is especially true of his transformations which will generate code based on that annotation.
+	As i undertsand annotations create codes based on the annotation.
+
+
+http://docs.groovy-lang.org/next/html/gapi/groovy/transform/package-summary.html --> This is the place where AST transformation resides.
+
+Let's take 'Immutable'  - http://docs.groovy-lang.org/next/html/gapi/groovy/transform/Immutable.html
+In the web page it is wriiten;
+	A class created in this way has the following characteristics:
+
+	The class is automatically made final. Properties must be of an immutable type or a type with a strategy for handling non-immutable characteristics......
+
+
+
+*** In the groovy console, 
+I write a class and save it. Tu test/use my class I create an another class and try to run.
+When I tried to run it gets compile error because it do not see our class.
+Here's my solution;
+First open the class and run it in th groovy console with Ctrl + R
+See the error:
+	groovy.lang.GroovyRuntimeException: This script or class could not be run.
+	It should either:
+	- have a main method,
+	- be a JUnit test or extend GroovyTestCase,
+	- implement the Runnable interface,
+After seeing the error open the another class like App.groovy or Application.groovy
+Then run the application class.
+
+I think when i first run the class itself it kinda lots the class in memory so when i run my app class it see my original class and print the results.
+See below classes.
+
+
+ImmutableCustomer.groovy
+	import groovy.transform.Immutable
+
+	@Immutable
+	class ImmutableCustomer {
+		String first, last
+		int age
+		Date since
+		Collection favItems
+
+	}
+
+
+App.groovy:
+	def d = new Date()
+	def c1 = new ImmutableCustomer(first:'Tom', last:'Jones', age:21, since:d, favItems:['Books', 'Tops'])
+	def c2 = new ImmutableCustomer('Tom', 'Jones', 21, d, ['Books', 'Tops'])
+	assert c1 == c2
+
+
+c1 == c2 is equal to each other. Why?
+Since ImmutableCustomer is immutable we have hashcode and equal methods by default.
+
+
+@Sortable AST Transformation --> look at SortablePerson.groovy and App.groovy 
+But we can use;
+	assert people.last().born == 1990
+	println people
+	def sorted = people.sort(false /*do not mutate original collection*/)
+	println sorted
+
+
+
+
+
+10- Operators
+http://groovy-lang.org/operators.html
+
+Conditional Operators
+Ternary Operator
+	Instead of;
+	if (string!=null && string.length()>0) {
+		result = 'Found'
+	} else {
+		result = 'Not found'
+	}
+
+	result = (string!=null && string.length()>0) ? 'Found' : 'Not found'
+
+And even make it simple with Groovy truth;
+	result = string ? 'Found' : 'Not found'
+
+
+Elvis Operator
+displayName = user.name ? user.name : 'Anonymous'   
+displayName = user.name ?: 'Anonymous'   
+
+
+
+Object operators
+Safe navigation operator - ?.
+	1- def person = Person.find { it.id == 123 }    
+	2- def name = person?.name                      
+	3- assert name == null     
+
+	1- find will return a null instance
+	2- use of the null-safe operator prevents from a NullPointerException
+	3- result is null
+	
+	
+	//Java
+	Person p = new Person();
+	if(p.address != null){
+		Address address = p.getAddress();
+	}
+	
+	//Groovy
+	Person p = new Person()
+	Address address = p?.address --> If the address is null we make sure that we don't throw a nullpointerexception instead groovy sets address to null.
+
+
+
+	
+Direct field access operator - $
+println "Name: $name"
+
+
+Membership operator - in
+def list = ['Grace','Rob','Emmy']
+assert ('Emmy' in list) 
+
+
+
+
+
+11- Grapes
+Dependency Management with Grape
+http://docs.groovy-lang.org/latest/html/documentation/grape.html
+
+@Grab(group='org.springframework', module='spring-orm', version='3.2.5.RELEASE')
+import org.springframework.jdbc.core.JdbcTemplate
+
+@Grab also supports a shorthand notation:
+@Grab('org.springframework:spring-orm:3.2.5.RELEASE')
+import org.springframework.jdbc.core.JdbcTemplate
+
+
+@Grabs(
+	@Grab(group='org.springframework', module='spring-orm', version='3.2.5.RELEASE')
+	....
+)
+
+
+
+Specify Additional Repositories
+@GrabResolver(name='restlet', root='http://maven.restlet.org/')
+@Grab(group='org.restlet', module='org.restlet', version='1.1.6')
+
+
+
+Quiz - Learning Groovy Basics
+You can have more than 1 class in a file. - True
+Which one of the following is not a valid Groovy control structure - when
+You can create your own AST Transformations. - True
+
+
+
+
+
+Section 4 - Simple Data Types
+Java is statically typed which means that all variables first must be declared before they can be used.
+Groovy Data Types and Optional Typing
+****Everything is object in groovy.
+int x = 5 --> Groovy uses wrapper classes so this is Integer object and we can call methods from Integer.
+
+Look at the '7- Numbers' section also.
+
+Optional typing: def 
+In groovy we can declare data type like Java or we don't declare a data type and use 'def'.
+
+def x = 10 --> we don't care what type X is but here's the value that I'm going to assign to it. 
+***Groovy in the background decides the data type by looking at its value.
+x.getClass().getName() --> java.lang.Integer
+***But real power comes later:
+x = 'Ayce'
+x.getClass().getName() --> java.lang.String
+First it is a Integer then it is a String.
+
+***Whenever we have a variable that may change data types over the course of a program we can actually type it by using the def keyword.
+
+***You'll see a lot of people getting started just automatically using 'def' in everywhere.
+But if you know what that type of your data is going to be and it's not going to change then use data type not 'def'.
+
+
+Quiz - Data Types
+To declare a variable in Java you need to define - The variable name and data type
+How many primitive data types are there in Java? - 8 
+Each primitive data type in Java has a corresponding wrapper class. - True
+There is a special data type in Java. What is it? - String 
+In Java there are a total of 17 data types. - True There are 8 primitive data types, 8 corresponding wrapper class and String bringing us to 17
+A floating point number in Groovy defaults to what data type? - BigDecimal
+Given the following code... What is the data type of number after all of this code runs.
+	def number = "1"
+	number = 10
+	number = 10 + "1"
+It is String.
+
+
+//Explicit - casting
+def myFloat = (float) 1.0
+println myFloat.class
+
+!!!If either operand is a float or a double the result is a double.
+!!!In Java if only floats are involved the result is a float.
+
+!!!If either operand is a big decimal the result is a big decimal.
+
+!!!If either operand is a BigInteger the result is a BigInteger.
+!!!If either operand is a Long the result is a Long.
+!!!If either operand is a Integer the result is a Integer.
+
+def intDiv = 1/2 
+println intDiv // 0.5 - This is much different than Java where we would get 0
+println intDiv.getClass().getName() //java.math.BigDecimal
+println 1.intDiv(2) // 0 -- If we need a integer division
+
+//GDK methods
+assert 2 == 2.5.toInteger() // conversion
+assert 2 == 2.5 as Integer // enforce coercion
+assert 2 == (int) 2.5 // cast
+assert '5.50'.isNumber()
+assert 5 == '5'.toInteger()
+
+//times | upto | downto | step
+20.times {
+	println '-'
+}
+
+1.upto(10) { num ->
+	println num
+}
+
+10.upto(1) { num ->
+	println num
+}
+
+0.step(1, 0.1){ num -> // from 0 to 1(1 is not included) with incrementation 0,1
+	println num
+}
+
+
+Operator Overloading:
+https://groovy-lang.org/operators.html#Operator-Overloading
+
+def a = 1
+def b = 1
+
+println a + b --> This actually call plus method and pass b as an argument --> a.plus(b)
+
+
+//Java
+	char c = 'c'
+	prinltn c.class --> java.lang.Character
+
+	String str = "this is a string"
+	prinltn str.class --> java.lang.String
+
+//Groovy
+	!!!By default everything is a String in groovy, doesn't matter it is a double quote or single quote
+	def c2 = 'c'
+	println c2.class --> java.lang.String
+	
+	String str2 = 'this is a string'
+	prinltn str2.class --> java.lang.String
+	
+	Two types of String in Groovy
+	1-Plain Strings
+		Instance of java.lang.String
+		
+	2-G Strings - groovy String
+		Instance of groovy.lang.String
+		With $ sign, we evaulate the value at runtime -- String interpolation
+		String name = 'AAA';
+		println "name: $name" or println "name: ${name}" --> ****Use double quote not single
+		If we use single quote like;
+		println 'name: $name' --> prints name: $name not name: AAA
+		
+		println "hi ${1+1}"
+		
+	Multiline String
+	We use three single quotes or three double quotes like;
+	def aLargeStr = '''
+		A
+		Message
+		is
+		Large
+	'''
+	
+	Dollar slashy
+	Means anything between $/ /$ is a string.
+	def folder = "C:\groovy\section"
+	println folder --> gives '1 compilation error: unexpected char: '\' at line: 19, column: 21' message because of \
+	def folder = "C:\\groovy\\section" or using dolar slashy - def folder = $/C:\groovy\section/$
+	It is usefull when working with reqular expressions.
+
+
+Reqular Expressions
+1- find operator: (=~) - You can directly use =~ to build a java.util.regex.Matcher instance.
+2- match operator: (==~) - The match operator ==~ is a slight variation of the find operator, that does not return a Matcher but a boolean and requires a strinct match of the input string.
+3- pattern operator: (~string) - The pattern operator ~ provides a simple way to  create a java.util.regex.Pattern instance.
+
+def text = "Being a Cleveland Sports Fan is no way to go through life"
+def pattern = ~/Cleveland Sports Fan/
+def finder = text =~ pattern
+def matcher = text ==~ pattern
+println finder --> returns java.util.regex.Matcher[pattern=Cleveland Sports Fan region=0,57 lastmatch=]
+println finder.size() --> 1
+println matcher --> false because it requires an exact match
+
+
+def text = "Cleveland Sports Fan"
+def pattern = ~/Cleveland Sports Fan/
+def matcher = text ==~ pattern
+println matcher  --> true
+if(matcher){
+	....
+}
+text = text.replaceFirst(pattern, 'Buffalo')
+
+
+Section 5 - Collections
+Ranges:
+Ranges are object :) obviously :)
+http://docs.groovy-lang.org/latest/html/gapi/groovy/lang/Range.html
+**Double dot are important
+Range r = 1..10  --> means from 1 to 10, 10 is included.
+	Range r = 1..<10 --> means do not include 10 from 1 to 9. 9 is included
+prinltn r
+println r.from
+println r.to
+
+
+assert(1..10).contains(1)
+assert(1..10).contains(0) -- Assertion failed
+assert(1..<10).contains(10) -- Assertion failed
+
+
+Date today = new Date()
+Date oneweekaway = today + 7
+println today
+println oneweekaway
+Range days = today..oneweekaway
+println days
+
+
+Range letters = 'a'..'z'
+println letters
+
+
+Lists:
+http://docs.groovy-lang.org/latest/html/groovy-jdk/java/util/List.html
+def nums = [] -- Creation of a list
+println nums.class.name - java.util.ArrayList
+Default we use ArrayList in groovy.
+So we can def with concrete implementation of List which is ArrayList or just List;
+ArrayList nums = [] or List nums = []
+
+If we want other concrete implementation of List; we can use as keyword like;
+List nums = [1,2,3,4,5,6,7,8,9] as LinkedList
+println nums.class.name - java.util.LinkedList
+
+
+List nums = [1,2,3,4,5,6,7,8,9]
+//add | remove | get | clear
+nums.push(99) - add 99 to at the end of the list
+nums.putAt(0,77) - deletes replace the first element of the list with 77
+nums[0] = 78
+println nums + [3,4,6] -- plus - leave the original list unharmed and create a new list
+
+nums<<66 -- add 66 to at the end of the list 
+
+
+nums.pop() //pop() - removes the initial element
+nums.removeAt(0) //removeAt(int index)
+def newList = nums - 6 //minus(Collection removeme) - minus(Object removeme) It remove the number/element 6 from the list
+println newList
+
+
+List nums2 = [1,3,4,3,6,3,8,9]
+println nums2 --result is: [1, 3, 4, 3, 6, 3, 8, 9]
+def newList = nums2 - 3 //It removes all number/element 3
+println newList --result is [1, 4, 6, 8, 9]
+
+
+println newList[2] --> indexes are zero based, it prints third element in the list
+println newList.getAt(2) 
+We can use getAt with Range like: 
+	println newList.getAt(0..3) -- the element at 0 index and the element at 3 index are included.
+
+	For looping:
+	for (x in newList){
+		println x
+	}
+
+	Closures:
+	newList.each { println it}
+
+
+newList << [99,98,97]
+newList << [101,100]
+println newList -->prints: [1, 4, 6, 8, 9, [99, 98, 97], [101, 100]]
+println newList.flatten() -->prints: [1, 4, 6, 8, 9, 99, 98, 97, 101, 100]
+println newList.unique() -->prints: [1, 4, 6, 8, 9, [99, 98, 97], [101, 100]]
+
+def numbers = [1,2,7,3,7,8,8,3,8,3,8,10,9,6] as Set
+println numbers --> prints: [1, 2, 7, 3, 8, 10, 9, 6] //Just unique elements
+println numbers.class.name --> prints: java.util.LinkedHashSet
+
+
+def numbers = [1,2,7,3,7,8,8,3,8,3,8,10,9,6] as SortedSet
+println numbers --> prints: [1, 2, 3, 6, 7, 8, 9, 10] //unique and ordered
+println numbers.class.name --> prints: java.util.TreeSet
+
+
+newList.clear()
+newList = []
+
+
+Maps:
+http://docs.groovy-lang.org/latest/html/groovy-jdk/java/util/Map.html
+key value pairs
+def map = [:] --> Map
+def list = [] --> List
+
+
+def map = [:]
+println map.getClass().getName()  //java.util.LinkedHashMap
+
+def person = [first:'Ayce', last:'Kes', email:'a,k@hotmail.com'] //first is key Ayce is value
+println person //[first:Ayce, last:Kes, email:a,k@hotmail.com]
+println person.first // Ayce. Get the value which key is equal to first --> It is not calling get method like other datatypes and that is why map.class.name is not working for a map.
+
+*** In map we directly accesing property with dot operator.
+
+println person.class.name // java.lang.NullPointerException: Cannot get property 'name' on null object. --> Groovy is doing instead of calling the getter -getClasss(),
+	it's actually looking for a property in that map called class. And if a property does not exist in a map it's always going to return null for use.
+	person.class is returning null
+
+Adding a new key/value pair:
+	person.twitter = '@akak'	
+	println person // [first:Ayce, last:Kes, email:a,k@hotmail.com, twitter:@akak]
+
+All keys are string as defualt so we don't use double or single quote. But if our key consists of 2 words we must use double or single quote.
+def person = ['first name':'Ayce', last:'Kes', email:'a,k@hotmail.com'] // [first name:Ayce, last:Kes, email:a,k@hotmail.com]
+
+What about if we want to use a variable as a key of our map.
+def fistNameKey = 'first name'
+def person = [fistNameKey:'Ayce', last:'Kes', email:'a,k@hotmail.com']
+println person // [fistNameKey:Ayce, last:Kes, email:a,k@hotmail.com] --> It doesn't use value of our variable so use paranthesis like;
+
+def person = [(fistNameKey):'Ayce', last:'Kes', email:'a,k@hotmail.com']
+println person //[first name:Ayce, last:Kes, email:a,k@hotmail.com]
+
+Methods:
+println person.size() //3
+println person.sort() // Key are sorted -->[email:a,k@hotmail.com, first name:Ayce, last:Kes]
+
+
+	For looping:
+	for (entry in person){
+		println entry
+	}
+	// prints
+	first name=Ayce
+	last=Kes
+	email=a,k@hotmail.com
+
+	   
+    for (key in person.keySet()){
+        println key
+    }
+	// prints
+	first name
+	last
+	email
+	
+	for (key in person.keySet()){
+        println "$key: ${person[key]}"
+    }
+	// prints
+	first name: Ayce
+	last: Kes
+	email: a,k@hotmail.com
+
+
+
+Section 6: Closures
+http://groovy-lang.org/closures.html
+http://docs.groovy-lang.org/latest/html/api/groovy/lang/Closure.html
+
+A closure is just like a method except it is a first class citizen of the language.
+When I have a method in a class we give it a name. It takes some arguments and performs some actions.
+A closure will do the same thing. But unlike that method a closure is an object and can be used or passed around your program's.
+
+What are Closures Used For?
+* Iterators
+* Callbacks
+	We no longer have a need for anonymous inner classes like we did in Java.
+We can just create callbacks.
+* Higher-order functions
+	Functions that are calling other functions
+* Specialized Control Structure
+* Builders
+* Resource allocation
+* Threads
+	Threads there is actually a static method on a thread class.
+	For a start and it takes a closure and it just makes creating new threads and performing actions.
+Very very simple.
+* DSLs (Domain Specific Languages)
+* Flunet Interfaces
+
+
+Closure is just a block of code inside of the curly brace :)
+def c = { }
+println c.class.name --> ConsoleScript74$_run_closure1
+println c instanceof Closure --> println c instanceof Closure
+
+is the same as;
+	Closure c = { }
+	println c.class.name --> ConsoleScript74$_run_closure1
+	println c instanceof Closure --> println c instanceof Closure
+	
+	
+Closure is a method but it has no name.Just like a method it can take arguments and perform a function you know perform some kind of programming.
+
+//Defining closure
+def sayHello = {
+    println "Hello"
+}
+
+//Calling closure
+sayHello()
+
+
+//Let's add an argument to our closure called 'name'
+//we separate the closure arguments from the closure body using this arrow syntax '->'
+def sayHello = { name ->
+    println "Hello $name"
+}
+
+
+//Calling closure
+sayHello("Ayce")
+
+***Closures are objects that we can then pass around our programs.
+
+
+Let's create a list.
+
+Collection each method takes Closure as an argument - http://groovy-lang.org/gdk.html
+public Collection each(Closure closure)
+List numbers = [1,2,3,4,5]
+If there are no arguments passed into a closure there is a special reserved keyword called 'it'.
+numbers.each{
+    println it
+}
+or we can give a parameter;
+numbers.each{ num ->
+    println num
+}
+
+//Closure are objects & last parameter
+def tenTimes(num, closure){
+    closure(num * 10)
+}
+
+tenTimes(10, {println it} )
+tenTimes(2, {println it} )
+
+Any method that accepts a closure as the last argument has a special idiomatic way to kind of print it out, to kind of use it in an expression.
+So any time a closure is the last argument to a method you can remove the braces and put it outside of the braces.
+So tenTimes(2, {println it} ) becomes tenTimes(2) {println it} or tenTimes(2) {
+																	println it}
+That is why below method works, call each method. Since 'each' method has a closure as a last argument we can skip braces () and directly give the closure.
+numbers.each{ num ->
+    println num
+}
+
+
+The other example is 'times' method.
+10.times {
+    println it
+}
+
+
+import java.util.Random
+Random random = new Random()
+3.times {
+    println random.nextInt()
+}
+
+
+//If we want to have a closure which takes no args.
+/*
+def noparams = {
+    println "no params..."
+}
+*/
+// To make them no paras add arrow '->' in the begining
+def noparams = { ->
+    println "no params..."
+}
+noparams(1)
+
+
+
+//Multiple args
+def sayHello = { first, last -> 
+    println "Hello $first, $last"
+}
+sayHello('FirstName', 'LastName')
+
+
+
+//Multiple args with specific data type
+def sayHello2 = { String first, String last -> 
+    println "Hello $first, $last"
+}
+sayHello2('Ayce', 'Kes')
+
+
+//default values
+def greet = { String name, String greeting = "Howdy" ->
+    println "$greeting, $name"  
+}
+greet("Ayce", "Hello")
+greet("Murad") // Calling with the default value
+
+
+
+//var-arg
+//not strictly belong to the closure
+// When we do not know the number of the argument. Closure can take 1 argument, 10 arguments, 12 arguments ...
+def concat = {String ... args ->
+    args.join('')
+}
+println concat('abc', 'def')
+println concat('abc', 'def', '123')
+
+
+
+//Define a method that takes a closure as an argument
+def someMethod(Closure c){
+    println "..."
+    println c.maximumNumberOfParameters
+    println c.parameterTypes
+}
+//Define a closure
+def someClosure = { int x, int y -> x+y}
+//Call method
+someMethod(someClosure)
+
+
+Closure Quiz
+A closure is an object. - True
+What package is the Closure class located in? - groovy.lang
+What is the output of the following code.
+	def greet = { println it }
+	greet("Hello, Dan")
+	
+	Hello, Dan
+	
+What is the output of the following code
+	def noparams = { ->
+		println "no params..."
+	} 
+	noparams(1)
+	
+	groovy.lang.MissingMethodException
+
+Closure arguments can be typed and have default values. - True
+
+
+
+Collection Methods
+Collection	each(Closure closure): Iterates through a Collection, passing each item to the given closure.
+Collection	eachWithIndex(Closure closure): Iterates through a Collection, passing each item and the item's index (a counter starting at zero) to the given closure.
+
+// each & eachWithIndex
+List nums = [2,9,45,13,89]
+nums.each {
+    println it
+}
+//What about if we need an index?
+nums.eachWithIndex { num, idx ->
+    println "$idx:$num"
+}
+
+
+//findAll
+Collection	findAll(): Finds the items matching the IDENTITY Closure (i.e. matching Groovy truth).
+List days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+List sdays = days.findAll{ it.startsWith("S")}
+println days
+println sdays
+
+
+
+//collect
+//take each itme n the list and multiply by 10
+List numbers = [9,45,103,8,77,56,34,91]
+List numsTimesTen = []
+numbers.each{ n ->
+    numsTimesTen << n * 10
+}
+println numsTimesTen
+
+
+//using with collect method
+List numsTimesTenWithCollect = numbers.collect{ n -> n*10}
+println numsTimesTenWithCollect
+
+
+
+Curry Methods
+https://groovy-lang.org/closures.html#_currying
+In groovy Curry refers to the concept of partial application.
+It'll let you set the value of one parameter of a closure.
+It will return a new closure except in one less parameter.
+
+In Groovy, currying refers to the concept of partial application. 
+It does not correspond to the real concept of currying in functional programming because of the different scoping rules that Groovy applies on closures. 
+Currying in Groovy will let you set the value of one parameter of a closure, and it will return a new closure accepting one less argument.
+
+
+def log = { String type, Date createdOn, String msg ->
+    println ("$createdOn [$type] = $msg")
+} 
+log("DEBUG", new Date(), "Fist debug statement..")
+
+//We'll pass that one argument into our existing closure and now it's going to return to us a new closure that really only has two arguments needed to fill, the date and the message.
+def debugLog = log.curry("DEBUG") //debugLog is our new closure which takes 2 parameters which are createdOn and msg
+debugLog(new Date(), "This is another debug statement..")
+debugLog(new Date(), "This is one more...")
+
+def todayDebugging = log.curry("DEBUG", new Date())
+todayDebugging("This's today debug msg..")
+
+def todayDebugging2 = debugLog.curry(new Date())
+todayDebugging2("This's today debug msg version 2")
+
+
+//right curry
+//rcurry replaced from the right to the left.
+def rlog = log.rcurry("Why am I logging this way")
+rlog("DEBUG", new Date())
+
+
+//index based currying
+//In case a closure accepts more than 2 parameters, it is possible to set an arbitrary parameter using ncurry:
+def typeMsgLog = log.ncurry(1, new Date())
+typeMsgLog("ERROR", "This is using ncurry..")
+
+
+
+
+Closure Scope & Delegates
+First see a closure you probably thought to yourself.
+That's true so lambda expression that I've seen in other languages that support functional programming.
+And you are half right.
+The concept of changing a closures delegate is what makes the closures so unique.
+
+
+We need to understand the scopes on the closure in order to delegate.
+These scopes are : Owner, delegate and this
+
+this: Correspond to the enclosing class where the closure is defined.
+So if we had a class called my class and inside of that my class we had a closure.
+This would correspond to my class.
+If we did this in a script, there is no enclosing class but if you remember back to us talking about scripts there still is a class wrapped around our script.
+This is Script class that was created for us.
+
+owner: Corresponds to the enclosing object where the closure is defined, which may be either a class or a closure.
+So as you'll see in the demo that you can wrap closures inside of closures.
+So in the nested closure if we asked for its owner it would be the parent closure.
+If there was no parent, closure that could be the course the enclosing class itself.
+
+delegate: Corresponds to a third party object where method calls or properties are resolved whenever the receiver of the message is not defined.
+And this is really where some of the magic starts to happen.
+
+
+
+/*
+    this corresponds to the enclosing class where the closure is defined
+    owner corresponds to the enclosing object where the closure is defined, which may be either a class or a closure
+    delegate corresponds to a third party object where methods calls or properties are resolved whenever the receiver of the message is not defined
+*/
+class ScopeDemo{
+
+    def outherClosure = {
+        println this.class.name
+        println owner.class.name
+        println delegate.class.name
+        def nestedClosure = {
+            println this.class.name
+            println owner.class.name
+            println delegate.class.name
+        }
+        nestedClosure()
+        
+    }
+}
+
+def demo = new ScopeDemo()
+demo.outherClosure()
+
+
+prints:
+ScopeDemo
+ScopeDemo
+ScopeDemo
+ScopeDemo
+ScopeDemo$_closure1 --> means closure in the ScopeDemo which is outherClosure in our case
+ScopeDemo$_closure1 --> means closure in the ScopeDemo which is outherClosure in our case
+
+
+//Delegation
+def writer = {
+    append 'Ayce'
+    append 'lives in London'
+}
+
+writer()
+
+/*
+It gets 
+    'groovy.lang.MissingMethodException: No signature of method: Delegates.append() is applicable for argument types: (String) values: [Ayce]
+    Possible solutions: any(), find(), grep(), print(java.lang.Object), find(groovy.lang.Closure), any(groovy.lang.Closure)'
+error.
+Because It doesn't know what to append.
+So it's time to call appen and it doesn't know what he's doing so it fails.
+
+So when appen is called in the writer closure then looks outside of itself into the enclosing class.
+So in our case where it isn't a script blocks, it is script class that was created for us.
+So append method looks Script class and do have any methods calles append? 
+It doesn't.
+*/
+
+
+//Then let's add an append method
+def append(String s){
+    println "append() called with argument of $s"
+}
+
+//Now it found the appen method.
+//We actually create an append method when the writer goes to call upon, looks first within the closing class and goes all right I can call. 
+//And it goes ahead and in it calls it.
+//So everything is fine at this point.
+-------------------------------------------
+def writer = {
+    append 'Ayce'
+    append 'lives in London'
+}
+
+//writer()
+
+/*
+It gets 
+    'groovy.lang.MissingMethodException: No signature of method: Delegates.append() is applicable for argument types: (String) values: [Ayce]
+    Possible solutions: any(), find(), grep(), print(java.lang.Object), find(groovy.lang.Closure), any(groovy.lang.Closure)'
+error.
+Because It doesn't know what to append.
+So it's time to call appen and it doesn't know what he's doing so it fails.
+
+So when appen is called in the writer closure then looks outside of itself into the enclosing class.
+So in our case where it isn't a script blocks, it is script class that was created for us.
+So append method looks Script class and do have any methods calles append? 
+It doesn't.
+*/
+
+
+
+//Then let's add an append method
+/*
+def append(String s){
+    println "append() called with argument of $s"
+}*/
+
+//Now it found the appen method.
+//We actually create an append method when the writer goes to call upon, looks first within the closing class and goes all right I can call. 
+//And it goes ahead and in it calls it.
+//So everything is fine at this point.
+
+
+
+//So what if there was a situation where the append method lived in another class that we wanted to delegate responsibility to.
+//What about StringBuffer? It has append method.
+//I want to say the delegate property I want to set that to string buffer.
+//So closing the upper append method.
+StringBuffer sb = new StringBuffer()
+writer.delegate = sb
+writer()
+
+
+
+
+//What about if we comment out our appen method also? We have 2 append method now one is our method and the another one is StringBuffer.
+//It call our method even if we delegate it. this is because of the resolve strategy. The default strategy is owner_first. (https://groovy-lang.org/closures.html#_currying)
+append() called with argument of Ayce
+append() called with argument of lives in London
+
+
+//If we change the default strategy to delegate? - to use StringBuffer class
+writer.resolveStrategy = Closure.DELEGATE_FIRST
+writer()
+
+
+Closure Exercise
+//Section 6 Exercise Closure
+//-Create a Method that accepts a closure as an argument
+//Create a closure that performs some action
+//Call the method and pass the closure to it.
+def myMethod(Closure c){
+    println "inside myMethod"
+    c()
+}
+
+def say = { String name = "aa", String lastName = "bb" ->
+    println "name: $name lastName:$lastName"
+}
+
+myMethod(say)
+
+//Create a list and use them each to iterate over each item in the list and print it out
+//Hint - You can use the implicit it or use your own variable
+List list = [1,2,3,4,5,6,7,8,9]
+list.each{ n -> print n}
+
+
+
+//Create a map of data and iterate over it using each method.
+//This method can take a closure that accepts 1 or 2 arguments. 
+//Use 2 arguments and print out the key and value on each line.
+println "\nmap:"
+def map = [1:"a", 2:"b", 3:"c"]
+map.each{ key, value -> println "$key:$value"}
+
+
+
+//Demonstrate the use of curry and try to come up with an example different from the one we used in the lecture. 
+def lastName = say.curry("Ayce")
+lastName()
+
+
+//Explore the GDK
+List people = [
+    [name:"Ayce", city:"London"],
+    [name:"Murad", city:"London"],
+    [name:"Andy", city:"Dayton"],
+    [name:"Birol", city:"Izmir"],
+    [name:"John", city:"Oxford"],
+    [name:"Dan", city:"Dayton"],
+]
+//In the following exercises we are going to explore the GDK to find some methods that take closures and learn how to use them.
+// Hint - I would narrow your search to java.util.Collection, java.lang.Iterable & java.util.List
+//Search for the find and findAll methods.
+//What is the difference between the two? 
+//Write some code to show how they both work.
+/*
+Object    find(): Finds the first item matching the IDENTITY Closure (i.e. matching Groovy truth).
+Object    find(Closure closure): Finds the first value matching the closure condition.
+Collection    findAll(): Finds the items matching the IDENTITY Closure (i.e. matching Groovy truth).
+Collection    findAll(Closure closure): Finds all values matching the closure condition.
+*/
+println people.find{ person -> person.city == 'London'}
+println people.findAll{ person -> person.city == 'London'}
+
+//Search for the any and every methods.
+//What is the difference between the two? 
+//Write some code to show how they both work. 
+/*
+boolean    any(Closure predicate): Iterates over the contents of an iterable, and checks whether a predicate is valid for at least one element.
+boolean    every(Closure predicate): Used to determine if the given predicate closure is valid (i.e. returns true for all items in this iterable).
+*/
+println people.any{ person -> person.city == 'London'}
+println people.every{ person -> person.city == 'London'}
+println people.every{ person -> person.name.size() >=3}
+
+//Search for the method groupBy that accepts a closure
+//What does this method do? 
+//Write an example of how to use this method.
+/*
+Map    groupBy(Closure closure):Sorts all Iterable members into groups determined by the supplied mapping closure.
+Map    groupBy(Object closures):Sorts all Iterable members into (sub)groups determined by the supplied mapping closures.
+Map    groupBy(List closures):Sorts all Iterable members into (sub)groups determined by the supplied mapping closures.
+*/
+def peopleByCity = people.groupBy{person -> person.city}
+println peopleByCity
+def london = peopleByCity["London"]
+println london
+
+london.each{ println it}
+
+
+
+
+
+Section 7 - Control Structures
+Groovy Truth
+No need to compare with null empty string etc..
+There is no need to statement like;
+	!=null !equals()
+	
+Groovy Truth Quiz
+List numbers = [1,2,3]
+if( numbers ) {
+    println "true"
+} else {
+    println "false"
+}
+-True
+
+def number = 0
+if( number ) {
+    println "true"
+} else {
+    println "false"
+}
+-False: A number that has a value of 0 evaluates to false. Every other number will evaluate to true.
+
+
+Person p = new Person()
+if( p ) {
+    println "true"
+} else {
+    println "false"
+}
+-True
+
+
+Conditional Structures
+//Swicth
+def num = 3
+switch(num){
+    case 1:
+        println "1"
+        break
+   case 2:
+       println "2"
+       break
+   case 1..3:
+       println "in the range 1..3"
+       break
+   case [1,6,9]:
+       println "num is in List"
+       break
+   case Integer:
+       println "num is an Integer"
+       break
+   case Float:
+       println "num is an Integer"
+       break
+    default :
+        println "default .."
+   
+}
+
+//In
+def validAges = 18..56
+def someAge = 19
+println someAge in validAges
+
+
+
+***last line of any method will be returned. There is no need to return keyword in groovy.
+Looping
+for (String s in 'a'..'z'){
+    if(s == 'a') continue
+    println s
+    if(s > 'b') break
+}
+
+
+Exception Handling
+In groovey every exception is optional and this goes for checked exceptions as well.
+This means that they do not need to be part of the method signature.
+
+In java we must declare our method with throws if we don't handle it.
+//Java
+public void foo() throws Exception{
+	throw new Exception()
+}
+
+//Groovy
+def foo(){
+	throw new Exception()
+}
+
+
+
+Section 8 - OOP Object Oriented Programming
+Classes / Fields / Local Variables
+Look at Person.groovy in Section8
+//local variables
+   def foo(){ //***Note: return type: def we do not care the return type it can be int, string, void .. But if i know return type, type it not use def
+       String msg = 'Hi'
+       String firstName = "Ayce"
+       println "$msg $firstName"
+   }
+
+
+def foo(def params){} //Note: We do not care the parameters types, it could be anything. Again if we know the type, type it not use def.
+It is really similar to Java.
+
+
+
+Contructors & Methods
+We can create object with fields in the constructor like below:
+Person p = new Person(firstName:'Ayc', lastName:'Kes')
+
+Default method parameters values
+// default value of 'canAccessAll' parameter is false
+// default value of 'numbers' parameter is [1,2,3]
+List someMethod(List numbers = [1,2,3], Boolean canAccessAll = false){
+    println "default values: $numbers $canAccessAll"
+}
+
+//If we do not know the number of parameters
+// We can use vararg
+def concat(String... args){
+    println args.length
+}
+
+
+Quiz:
+- By default a Class will have an access modifier of  - public
+- By default a field has an access modifier of - private
+- It is valid to declare 2 more fields of the same data type on 1 line - true
+A field with the keyword of static final is also referred to as a
+public static final String WELCOME_MSG = "HELLO, WORLD!" - constant
+- What is the output of the following code and why
+class Person {
+   def sayHello(){
+     String welcomeMsg = "Hello, World!"
+     println welcomeMsg
+   }
+}
+ 
+Person p = new Person()
+p.getWelcomeMsg()
+
+MissingMethodException - Yes. Do you know why? The variable welcomeMsg was declared locally in a method. The class has no idea what that variable is and therefor there was no getter generated for it.
+
+
+
+
+Inheritance
+It is similar to Java.
+class IPhone extends Phone{
+	...
+}
+
+Interfaces
+Similiar to Java.
+
+Traits
+http://docs.groovy-lang.org/next/html/documentation/core-traits.html
+http://groovy-lang.org/objectorientation.html#_traits
+Traits basically allow us to compose capabilities into our classes.
+So kind of like interfaces we have something that we need to inherit.
+Sounds like Java 8 default methods. The big difference is that traits can actully contains state.
+
+//Default method in java
+public interface IPersonService{
+
+	default public void doSomething(){ //***default keyword
+		System.out.println("doing something..");
+	}
+}
+
+
+Traits are a structural construct of the language which allows:
+composition of behaviors,
+runtime implementation of interfaces,
+behavior overriding,
+compatibility with static type checking/compilation
+They can be seen as interfaces carrying both default implementations and state. A trait is defined using the trait keyword:
+
+trait FlyingAbility {                       - 1                         
+        String fly() { "I'm flying!" }      - 2         
+}
+1- declaration of a trait
+2- declaration of a method inside a trait
+Then it can be used like a normal interface using the implements keyword:
+
+class Bird implements FlyingAbility {}      - 1         
+def b = new Bird()                          - 2 
+assert b.fly() == "I'm flying!"             - 3    
+1- Adds the trait FlyingAbility to the Bird class capabilities
+2- instantiate a new Bird
+3- the Bird class automatically gets the behavior of the FlyingAbility trait
+Traits allow a wide range of capabilities, from simple composition to testing, which are described thoroughly in this section.
+
+
+
+
+
+Groovy Beans
+A java bean just a standard.
+-All properties are private(use getters/setters)
+-A public no-arg constructor
+-Implements Serializable.
+	Java provides a mechanism, called object serilazition where an object can be represented as a squence of bytes that includes
+	the object's data as well as information about the object's types and the types of data stored in the object.
+	Java provides 
+	
+
+
+DoubleBean db = new DoubleBean()
+db.value = 100
+println "db.value: ${db.value}, db.getValue(): ${db.getValue()}"
+println "Accessing the value not calling getValue() method: ${db.@value}"
+
+// Directly accesing the value instead of calling get method use '@' - db.@value
+
+
+Exercise: TweetDemo.groovy
+
+
+
+Section 9 - Runtime MetaProgramming
+Meta Object Protocol (MOP) : The MOP is a collection of rules of how a request for a method call is handled by the Groovy runtime system and how to control the intermediate layer.
+
+Whenever groovey calls a method it doesn't just say all right what class is that class foo.
+Let me call the method bar on that foo class.It doesn't do that.
+Instead it asks this intermediate layer What should I do here.
+And based on a bunch of rules in a decision tree based on what type of object you're working with.
+That's how it knows what end up calling that intermediate layer is called the MOP.
+
+Compiled with groovyc: 
+Caller:Groovy or Java -> MOP -> Target:Groovy
+
+Compiled with javac:
+Caller:Java -> Target:Java or Groovy
+
+- If we are in Java and if we compile a java class, it calls directly right into that class and it looks for a method.
+-Subsequently if we create a class in groovey and call it from Java, we're calling directly into that class.
+-We call from groovey though, there's a little bit different request taken. So basically when I'm grooving the caller calls a groovey method in a groovey class type in the target of a groovey class file we pass through this mop.
+And then this map has a bunch of rules on what we should do next.
+So when we're talking about calls from groovy we could really be dealing with three different types of objects rate.
+1.POJO
+2.POGO
+3.Groovy Interceptor
+
+1.POJO: A reqular java object, whose class can be written in Java or any other language for the JVM.
+2.POGO:A Groovy object, whose class is written in Groovy. It extends java.lang.Object and implements the groovy.lang.GroovyObject interface by default.
+3.Groovy Interceptor: A Groovy object that implements the groovy.lang.GroovyInterceptable interface and has methods interception capability.
+
+Runtime MetaProgramming: MetaProgramming is the writing of computers programs that write or manipule other programs(or themselves)
+
+
+Customizing the MOP:
+In the last lecture we started to look at what the map is or the meta object protocol.
+And we looked at how it influences and what happens when we call a method in groovey.
+So now we're going to start to dive in a little bit further so we know that it doesn't actually just
+directly car method that it looks down it's decision decision tree and tries to figure out what it needs to do next.
+
+Customizing the MOP with Hooks;
+-Groovy object
+-invokeMethod()
+-get property
+-property missing
+-set property
+-method missing 
+
+Groovy gives us the ability within that decision tree to kind of declare things to kind of catch these different scenarios. So we're going to do is look at just a normal class and how every class in groovy implements groovy object and what methods are available in there.
+One of those methods is the invoked method.
+Look at get properties set property and property missing for dealing with hooking into different property calls.
+Finally we'll look at method missing which allows us to hook into as it states any missing methods that are called.
+
+- Create a Employee.groovy class.
+- Open Employee.class file with Java decompliler tool.
+package com.mop;
+
+import groovy.lang.GroovyObject;
+import groovy.lang.MetaClass;
+import groovy.transform.Generated;
+import groovy.transform.Internal;
+import org.codehaus.groovy.reflection.ClassInfo;
+import org.codehaus.groovy.runtime.ScriptBytecodeAdapter;
+
+public class Employee implements GroovyObject {
+  @Generated
+  public Employee() {
+    MetaClass metaClass1 = $getStaticMetaClass();
+    this.metaClass = metaClass1;
+    metaClass1;
+  }
+}
+
+- Then open GroovyObject.class file: groovy.lang.GroovyObject - public interface GroovyObject
+We have
+-Object invokeMethod(String name, Object args);
+-Object getProperty(String propertyName);
+-void setProperty(String propertyName, Object newValue);
+-MetaClass getMetaClass();
+-void setMetaClass(MetaClass metaClass);
+
+
+
+InvokeMethodDemo:
+package com.mop
+//This method is called when the method you called is not present on a Groovy object.
+
+class InvokeDemo{
+	def test() {
+		return "method exists"
+		
+	}	
+	def invokeMethod(String name, Object args) {//We implemented a method that is actually in the GroovyObject interface. //That's how we're able to handle that particular method that wasn't defined.
+		"called invokeMethod $name $args"	
+	}	
+}
+
+def invokeDemo = new InvokeDemo()
+assert invokeDemo.test() == "method exists"
+assert invokeDemo.someMethod() == 'called invokeMethod someMethod []'//we have we have a way to handle a particular method that was and defined in our class and that's by using that invoke method.
+
+GetPropertyDemo:
+//Every read access to a property can be intercepted be overriding the getProperty() method of the current object.
+//Again we're implementing that GroovyObject interface so we can override that getProperty() method.
+class PropertyDemno{	
+	def prop1 = "prop1"
+	def prop2 = "prop2"
+	def prop3 = "prop3"	
+	def getProperty(String name) {
+		println "getProperty() called with argument $name"
+		//return
+		//metaClass.getProperty(this, name)
+		
+		//returning value since it is a getProperty method :)
+		if(metaClass.hasProperty(this, name)) { //metaClass is: public interface MetaClass extends MetaObjectProtocol {
+			metaClass.getProperty(this, name)
+		}else {
+			"property does not exists"
+		}
+	}
+}
+def pd = new PropertyDemno()
+println pd.prop1
+println pd.prop2
+println pd.prop3
+println pd.prop4
+
+
+SetPropertyDemo:
+//You can intercept write access to properties by overriding the setProperty() method.
+class POGO{	
+	String property	
+	void setProperty(String name, Object obj) {
+		this.@"$name" = 'overridden'		
+	}
+}
+def pogo = new POGO()
+pogo.property = 'a' // It doesn't matter which value we set, we override the setProperty method thus the value is always overridden
+println pogo.property
+assert pogo.property == 'overridden'
+
+
+MissingMethodDemo:
+// Groovy supports the concept of the methodMissing. This method differs from invokeMethod in that it is only
+// invoked in case of a failed method dispatch, when no method can be found for the given name and/or the given arguments:
+/*
+ This method differs from invoke method in that it is only invoked in the case of a failing method dispatch 
+ when no method can be found for the given name and are given arguments.
+ So whereas invoke method can be called for any method that we invoke whether it exists or doesn't exist.
+ Method missing is only called when we can't find a method.
+ * */
+class MyEmployee {	
+	def methodMissing(String name, def args){
+		if(name != 'someMethod') {
+			throw new MissingMethodException(name,args)
+		}
+		println "Method Missing called on $name with arguments $args"
+	}	
+}
+
+MyEmployee e = new MyEmployee()
+e.someMethod(1,2,3) // There is no method named someMethod but our 'methodMissing' catches it
+e.someOtherMethod(4,5,6)
+
+
+
+PropertyMissingDemo:
+class Foo{
+	def propertyMissing(String name) {
+		"caught missing property: $name"
+	}	
+}
+println new Foo().bar
+
+
+MetaClass:
+Every class has a metaClass.
+We go through the MOP every time like a property or a method is called and then we figure out what to do with it.
+Well the way that this works is every single class has an associated metaclass with to it and the metaclass contains all of the methods or properties that your class has within it and where the dynamic nature of groovey really comes into play is that you can add methods and properties to that metaclass.
+
+Expando e = new Expando()
+Expando: is a class in Groovy. This class is a represent a dynamically expandable bean.
+What that means is we can go ahead and add fields and add methods to this expanded class that don't exist in it.
+
+Expando e = new Expando()
+e.name = "Ayce"
+//add a method to expando
+e.writeCode = { -> println "$name writeCode() method"}
+e.writeCode()
+// Adding methods and properties is per instance. i.e we added 'name' property and 'writeCode' method to 'e' instance. 
+// If we try to call these new method from other instance, we get an error - per instance basis.
+Expando e2 = new Expando()
+e2.writeCode() //Caught: groovy.lang.MissingMethodException: No signature of method: groovy.util.Expando.writeCode() is applicable for argument types: () values: []
+
+
+MetaClass is actually is an Expando. So knowing now we can go ahead and add fields and methods to our metaclass which is what everything is called through.
+Every single class has an associated metaclass with it. And when a method call, property call goes through it. It runs through that metaClass first.
+
+
+//MetaClass is actually is an Expando. Lets add some property and method to metaClass of Developer.
+// per instance
+dev.metaClass.name = 'Ayc'
+dev.metaClass.writeCode = { -> println "$name dev metaClass's writeCode() method"}
+dev.writeCode()
+
+
+/*
+ * Now you can start to do this on a every instance basis not just per instance. 
+But be careful, You know with great power comes great responsibility. */
+//Every instance
+//Since every class has metaClass associated with it. Adding String class's metaData
+String.metaClass.shout = { -> toUpperCase() } 
+println "aaaavaaaa".shout()
+
+
+
+Quiz 7: Runtime Metaprogramming
+What does MOP stand for? - Meta Object Protocol
+If we make a call from Java to Groovy that call will go through the Meta Object Protocol (MOP) - False
+All objects in Groovy implement which Interface? - GroovyObject
+By implementing this method from the GroovyObject interface we can catch method calls from methods that are not defined.  - invokeMethod()
+What is the name of the class in Groovy that allows you to add properties and methods to it dynamically? - Expando
+
+
+Category Classes
+Using the metaclass to add dynamic capabilities to our programs is usually the way to go.
+Sometimes though we might prefer an alternative method that is a little bit more convenient.
+
+When we added method in metaClasses, people may not know that that method exists unless there is a well-defined API.
+So just kind of sporadically adding methods to the String class is probably not a great idea.
+We can actually create something called a category class and it allows us to confine and only add methods to a particular block of code instead of just application wide.
+So lets create a StringCategory class. It is an convention for a category class to end with 'Category' keyword.
+
+**We use category classes with keyword 'use'.
+/*So in this block we are basically saying now that anything in that string category class is kind of like a native function call on this block.
+ * It is only available in this block*/
+use(StringCategory){
+	println "Hello, World".shout()
+}
+
+//println "Hello, World".shout() //Caught: groovy.lang.MissingMethodException: No signature of method: java.lang.String.shout() is applicable for argument types: () values: []
+
+*** There are some category classes built in.
+-TimeCategory
+package com.mop.category
+import groovy.time.TimeCategory
+use(TimeCategory){
+	println 1.minute.from.now
+	println 10.hours.ago
+	
+	def someDate = new Date()
+	println someDate - 3.months
+}
+
+
+Intercept - Cache - Invoke Pattern
+We're going to have a quick review of the method missing method that allows us to catch any methods that are not declared and then we're also going to look at a bit of a performance boost with a pattern called 'intercept cache invoke pattern'
+
+
+
+
+Section 10 - Compile Time MetaProgramming
+All AST transformation is in the package 'groovy.transform' - there are exception like @Builder
+http://groovy-lang.org/api.html
+
+https://groovy-lang.org/metaprogramming.html
+We'll be looking AST Transformation that already build in. 
+@ToString
+@EqualAndHashCode
+@TupleConstructor
+	With @TupleConstructor; new Customer(first:'Tom', last:'Jones', age:21, since:new Date(), favItems:['Books', 'Games']) --> new Customer('Tom', 'Jones', 21, new Date(), ['Books', 'Games'])
+@Canonical
+	Combines the @EqualsAndHashCode, @ToString and @TupleConstructor annotations.
+	If you need all three of them you can definitely just use economical The one thing I will say is if you need to customize just one say you wanted to exclude a name for a string then you're going to
+	need to add the two string to that particular class and then pass in the particular attributes that you need.
+
+you need.
+@Singleton
+	http://docs.groovy-lang.org/latest/html/api/groovy/lang/Singleton.html
+	Basically a singleton in the Java world is we can only have one instance of this class in existence.
+	So the way you get around it in java you usually create a static field that holds the instance and a private constructor so you can never create an instance of that class. You can only call it.
+@Sortable
+	http://groovy-lang.org/api.html
+@Immutable
+	http://groovy-lang.org/api.html
+	Once we create an instance of something that we cannot change it's state.
+@TypeChecked
+	http://groovy-lang.org/api.html
+	One of the biggest complaints with dynamic languages is the lack of compile time type checking and because of the dynamic nature of groovvy we don't get a lot of that either.But we can with this particular areas the transformation.
+	We can do type checked at class level or at individual methods or properties.
+	While groovvy is a dynamic language, it does have static type capabilities.
+@CompileStatic
+	http://groovy-lang.org/api.html
+	This will let the Groovy compiler use compile time checks in the style of Java then perform static compilation, thus bypassing the Groovy meta object protocol.
+	It sounds like TypeChecked but the difference it we are bypassing the MOP.
+	@TypeChecked still goes the MOP.
+	When a class is annotated, all methods, properties, files, inner classes, etc. of the annotated class will be type checked. When a method is annotated, static compilation applies only to items (closures and anonymous inner classes) within the method.	
+@Builder
+	http://groovy-lang.org/api.html
+	It is in the 'groovy.transform.builder' package not in the 'groovy.transform' package.
+	The @Builder AST transformation is used to help write classes that can be created using fluent api calls.
+	Groovy provides other built-in mechanisms for easy creation of objects, e.g. the named-args constructor:
+		new Person(firstName: "Robert", lastName: "Lewandowski", age: 21)
+ 	or the with statement:
+		new Person().with {
+		 firstName = "Robert"
+		 lastName = "Lewandowski"
+		 age = 21
+		}
+	There are strategies;
+		SimpleStrategy for creating chained setters
+		ExternalStrategy where you annotate an explicit builder class while leaving some buildee class being built untouched
+		DefaultStrategy which creates a nested helper class for instance creation
+		InitializerStrategy which creates a nested helper class for instance creation which when used with @CompileStatic allows type-safe object creation
+
+		DefaultStrategy ex:
+			Person person = Person.builder().first("Ayce").last("Kes").build()
+			println person
+
+Section 11 - Working with Builders
