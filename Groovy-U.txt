@@ -1996,3 +1996,67 @@ you need.
 			println person
 
 Section 11 - Working with Builders
+
+MarkupBuilder - XML
+In the groovy.xml.MarkupBuilder package.
+GroovyConsole can directly see 'groovy.xml.MarkupBuilder' but Eclipse doesn't see 'import groovy.xml.MarkupBuilder' cause i used groovy compiler 2.5.8. Groovy 2.5+ does not have an all "fat" jar. which is groovy-all.jar. Instead of fat jar, groovy now uses groovy-all pom. 
+	<?xml version="1.0" encoding="UTF-8"?>
+	<project xmlns="http://maven.apache.org/POM/4.0.0"
+			 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+			  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+	http://maven.apache.org/xsd/maven-4.0.0.xsd">
+		<modelVersion>4.0.0</modelVersion>
+
+		<groupId>me.sunlan</groupId>
+		<artifactId>try-groovy-via-mvn</artifactId>
+		<version>1.0-SNAPSHOT</version>
+
+		<dependencies>
+			<dependency>
+				<groupId>org.codehaus.groovy</groupId>
+				<artifactId>groovy-all</artifactId>
+				<version>2.5.8</version>
+				<type>pom</type>
+			</dependency>
+		</dependencies>
+	</project>
+
+
+We can use groovy-all pom(I think it is the best practive and best way) or can add individual jar modules to our classpath or can switch to Groovy 2.4 compiler in eclipse.
+	builder.sports {//start with root node
+	}
+	So we remember a couple of things here.
+	- We know that if we wanted to we could pass in a closure to a method but because it is the last argument, we can omit these parentheses and just have a closure.
+	builder.sports { {}	} --> builder.sports {}
+	- Now another thing that's going on here is if you were to look down the chain of markup builder and any classes that it extends from I can pretty much guarantee you're not going to find a method called Sports in there and we know that from our MOP/O.O.P section now that what's going on here is probably some type of missing method or invoke method functionality going on behind the scenes.
+	No method called sports as defined so some kind of mising method catches that and then knows what to do with it. In this case in the case of market builder it's going to create a document structure for us. So that's how we're going to start off. 
+	
+http://groovy-lang.org/api.html - groovy.xml - MarkupBuilder
+
+
+Builder Documentation - https://github.com/apache/groovy
+If any groovy doc is not enough, go to groovy repo - 'https://github.com/apache/groovy/tree/master/subprojects' in github and look at the unit tests. i.e https://github.com/apache/groovy/tree/master/subprojects/groovy-xml/src/test/groovy/groovy/xml
+
+
+
+MarkupBuilder - HTML -- look com.builders html.groovy
+JSon Builder -- look com.builders json.groovy
+
+Object Graph Builder
+'groovy.util' package -- look com.builders objectgraph.groovy
+
+There are lots of builders and they can be checked from http://groovy-lang.org/dsls.html#_builders
+http://groovy-lang.org/dsls.html - 'Builders' part
+
+
+Builders - Quiz
+What type of content can the Markup Builder create? - HTML and XML
+The MarkupBuilder is located in what package. - groovy.xml
+JsonBuilder has a convenient method for writing out formatted json. What is the name of that method. - toPrettyString
+
+
+
+Section 12 - Working with the REST Services
+Working with XML
+
+ 

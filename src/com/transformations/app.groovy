@@ -1,7 +1,6 @@
 package com.transformations
 
 import groovy.transform.EqualsAndHashCode
-
 //1- @ToString Demo
 //Person p = new Person(first:'Ayce', last:'Kes', email:'elsevier')
 //println p

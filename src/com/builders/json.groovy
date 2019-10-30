@@ -1,0 +1,30 @@
+package com.builders
+
+import groovy.json.JsonBuilder
+
+JsonBuilder builder = new JsonBuilder()
+
+builder.books{
+	book1{
+		isbn("978-1935182443")
+		title('Groovy in Action 2nd Edition')
+		author(first:'Dierk', last:'Koenig')
+		price('50.58')
+	}
+	book2{
+		isbn("978-1935182948")
+		title('Making Java Groovy')
+		author(first:'Ken', last:'Kousen')
+		price('33.96')
+	}
+	book3{
+		isbn("978-1937785307")
+		title('Programming Groovy 2: Dynamic Productivity for the Java Developer')
+		author(first:'Venkat', last:'Subramaniam')
+		price('28.92')
+	}
+}
+
+//println builder.toString()
+println builder.toPrettyString()
+new File('src/books.json').write(builder.toPrettyString())
