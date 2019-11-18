@@ -2122,3 +2122,30 @@ https://github.com/jgritman/httpbuilder/wiki
 We use https://grails.org/plugin/rest?skipRedirect=true - http://plugins.grails.org/plugin/grails/http-builder-helper
 especially 'withRest(Map params, Closure stmts) - executes stmts using a RESTClient'
  
+
+GDK(Groovy Development Kit)
+https://groovy-lang.org/groovy-dev-kit.html
+http://groovy-lang.org/gdk.html
+
+
+QUIZ
+- If you run the following code it will create a file called dummy.txt in the current working directory. def file = new File('dummy.txt')
+False, it creates a file but doesn't actually write anything to disk.
+-If you want to create a new file called blogPost.txt with some initial text in what code would accomplish that task.
+a)def file = new File('blogPost.txt')
+file.write('some line')
+
+b)new File('blogPost.txt').text = 'Some line'
+
+c) Either would work
+
+d) Neither would work
+
+it is c -  Either would work
+-The File class is used to work with both files and directories
+True
+-How would you create a new File Instance that references the current directory?
+new File('.')
+-To check to see if a file object is a directory you can use the isDir method.
+false, it is isDirectory
+-
