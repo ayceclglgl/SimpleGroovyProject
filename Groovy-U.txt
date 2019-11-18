@@ -2057,6 +2057,68 @@ JsonBuilder has a convenient method for writing out formatted json. What is the 
 
 
 Section 12 - Working with the REST Services
-Working with XML
+- What class in the Groovy API is used to parse xml into a document structure. 
+XMLSlurper
+-What is the name of the method from the XmlSlurper class that we can use to read in xml text. 
+parseText
+-Given the following code what is the code that would print out the price of Ken Kousen's book? 
+def xml = """
+<books>
+    <book isbn="978-1935182443">
+        <title>Groovy in Action 2nd Edition</title>
+        <author>Dierk Koenig</author>
+        <price>50.58</price>
+    </book>
+    <book isbn="978-1935182948">
+        <title>Making Java Groovy</title>
+        <author>Ken Kousen</author>
+        <price>33.96</price>
+    </book>
+    <book isbn="978-1937785307">
+        <title>Programming Groovy 2: Dynamic Productivity for the Java Developer</title>
+        <author>Venkat Subramaniam</author>
+        <price>28.92</price>
+    </book>
+</books>
+"""
+def books = new XmlSlurper().parseText(xml)
 
+println books.book[1].price
+
+
+HTTP Status Code
+1XX Informational
+2XX	Success
+3XX Redirection
+4XX	Client Error
+5XX	Server Error
+
+Content Negotiation
+In HTTP, content negotiation is the mechanism that is used for serving different representations of a resource at the same URI, so that the user agent can specify which is best suited for the user (for example, which language of a document, which image format, or which content encoding).
+
+QUIZ
+-When you open a web browser and visit a URL what is the Http Request Method (verb) that is used by default. 
+Get
+-When you submit a form for the first time you are sending a request to a URL using what Http Request Method. 
+Post
+-When you want to update a resource you would use the Http Request Method (verb).
+Put
+-What range of status codes indicates that our status is a Success
+2XX
+-What range of status codes indicates a Server Error
+5XX
+
+
+Grap the text of URL:
+println 'http://docs.groovy-lang.org/docs/latest/html/documentation/'.toURL().text
+
+
+ 
+We don't actually have a built in rest client in groovy.
+There is actually a really good one written in groovy though and it's called the HTTP builder.
+https://github.com/jgritman/httpbuilder/
+https://github.com/jgritman/httpbuilder/wiki
+
+We use https://grails.org/plugin/rest?skipRedirect=true - http://plugins.grails.org/plugin/grails/http-builder-helper
+especially 'withRest(Map params, Closure stmts) - executes stmts using a RESTClient'
  
