@@ -2148,4 +2148,14 @@ True
 new File('.')
 -To check to see if a file object is a directory you can use the isDir method.
 false, it is isDirectory
--
+
+Threads
+http://groovy-lang.org/gdk.html - Thread
+
+
+Database Programming with Groovy
+http://groovy-lang.org/gdk.html - package 'groovy.sql'
+
+Templates
+
+Dates

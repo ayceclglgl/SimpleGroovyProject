@@ -1,0 +1,6 @@
+Hi $firstName $lastName
+
+You have ${repositories.size()} repo and $commits number of commits.
+
+Repositories name:
+<% repositories.each { repo -> println "> $repo.name" } %>
